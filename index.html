@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>老天祿新版電商系統原型</title>
+    <meta
+      name="description"
+      content="以老天祿現有網站內容為需求藍本，重新設計的可營運電商網站原型。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" data-route="home" aria-label="回到首頁">
+        <span class="brand-mark">祿</span>
+        <span>
+          <strong>老天祿</strong>
+          <small>台北城滷味專門店</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="主要導覽">
+        <button data-route="story">品牌故事</button>
+        <button data-route="shop">餐點訂購</button>
+        <button data-route="group">團體訂購</button>
+        <button data-route="orders">訂單查詢</button>
+        <button data-route="admin">後台</button>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="memberBtn" type="button" title="會員">
+          <i data-lucide="user-round"></i>
+        </button>
+        <button class="cart-btn" id="cartBtn" type="button" title="購物車">
+          <i data-lucide="shopping-bag"></i>
+          <span id="cartCount">0</span>
+        </button>
+        <button class="icon-btn menu-toggle" id="menuBtn" type="button" title="選單">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="手機導覽">
+      <button data-route="story">品牌故事</button>
+      <button data-route="shop">餐點訂購</button>
+      <button data-route="group">團體訂購</button>
+      <button data-route="orders">訂單查詢</button>
+      <button data-route="admin">後台</button>
+    </nav>
+
+    <main>
+      <section id="home" class="view active">
+        <div class="hero">
+          <img
+            id="heroImage"
+            src="https://www.lautianlu.com.tw/upload/package_b/ALL_package_21A10_7fhjik5qkr.jpg"
+            alt="老天祿品牌主視覺"
+          />
+          <div class="hero-content">
+            <p class="eyebrow">新版電商系統原型</p>
+            <h1>六十餘年的滷味記憶，換成更好下單的新網站。</h1>
+            <p>
+              以現有品牌故事、餐點分類、訂購須知與門市資訊為基礎，重新規劃商品、會員、購物車、訂單與後台管理流程。
+            </p>
+            <div class="hero-actions">
+              <button class="primary-btn" data-route="shop" type="button">
+                <i data-lucide="shopping-cart"></i>
+                開始訂購
+              </button>
+              <button class="secondary-btn" data-route="story" type="button">查看品牌故事</button>
+            </div>
+          </div>
+        </div>
+
+        <section class="section intro-grid">
+          <article>
+            <i data-lucide="badge-check"></i>
+            <h2>前台展示</h2>
+            <p>品牌故事、商品分類、商品詳情、FAQ、門市資訊與公告內容可統一管理。</p>
+          </article>
+          <article>
+            <i data-lucide="receipt-text"></i>
+            <h2>下單流程</h2>
+            <p>商品加入購物車、選擇配送、填寫資料、模擬付款並產生訂單編號。</p>
+          </article>
+          <article>
+            <i data-lucide="settings-2"></i>
+            <h2>後台營運</h2>
+            <p>示範商品新增、上下架、訂單狀態、團購需求與營運摘要。</p>
+          </article>
+        </section>
+
+        <section class="section split-band">
+          <div>
+            <p class="eyebrow">Customer-ready scope</p>
+            <h2>不是舊站搬家，是重新建置可維護系統。</h2>
+            <p>
+              這份原型保留老天祿舊站的核心內容與商業流程，但介面、資料結構與操作方式都改為新系統邏輯，後續可以接資料庫、金流、電子發票、簡訊與 LINE 通知。
+            </p>
+          </div>
+          <div class="workflow">
+            <span>商品瀏覽</span>
+            <span>加入購物車</span>
+            <span>結帳付款</span>
+            <span>訂單追蹤</span>
+            <span>後台出貨</span>
+          </div>
+        </section>
+      </section>
+
+      <section id="story" class="view">
+        <div class="page-head">
+          <p class="eyebrow">About</p>
+          <h1>品牌故事</h1>
+          <p>參考現有關於老天祿頁面，改成更容易閱讀、手機也友善的新版內容區塊。</p>
+        </div>
+        <section class="story-layout section">
+          <img
+            id="storyMainImage"
+            src="https://www.lautianlu.com.tw/upload/package_b/ALL_package_21A10_7fhjik5qkr.jpg"
+            alt="老天祿品牌故事圖"
+          />
+          <div>
+            <h2>滷味達人美食</h2>
+            <p>
+              六十多年歷史的滷味老店，陪伴台北人逛西門町、看電影，也是許多港台旅客喜愛的台北特色伴手禮。
+            </p>
+            <p>
+              老天祿以廣式滷製口味、嚴選食材與老師傅火候傳承，讓鴨舌、鴨翅、豆干等經典品項成為西門町記憶的一部分。
+            </p>
+            <div class="metrics">
+              <strong>60+</strong><span>年品牌歷史</span>
+              <strong>1</strong><span>西門町唯一門市</span>
+              <strong>20+</strong><span>多種滷味品項</span>
+            </div>
+          </div>
+        </section>
+        <section class="section story-cards">
+          <article>
+            <img
+              id="storyFounderImage"
+              src="https://www.lautianlu.com.tw/upload/package_b/ALL_package_21B19_2pbyiabnt8.jpg"
+              alt="創辦人相關照片"
+            />
+            <h2>創立六十餘年的經典味道</h2>
+            <p>從西門町戲院旁的滷味部開始，發展成為台北具代表性的伴手禮品牌。</p>
+          </article>
+          <article>
+            <img
+              id="storyStoreImage"
+              src="https://www.lautianlu.com.tw/upload/package_b/ALL_package_21A10_7uaa5pdhmj.jpg"
+              alt="老天祿店內照片"
+            />
+            <h2>嚴選食材、用心滷製</h2>
+            <p>以醬油、米酒、辛香料與中藥材調製滷汁，保留傳統風味並穩定品質。</p>
+          </article>
+        </section>
+      </section>
+
+      <section id="shop" class="view">
+        <div class="page-head shop-head">
+          <div>
+            <p class="eyebrow">Order</p>
+            <h1>餐點訂購</h1>
+            <p>可搜尋、分類、選口味與數量加入購物車。價格為原型示意，正式版需由客戶確認。</p>
+          </div>
+          <label class="search-field">
+            <i data-lucide="search"></i>
+            <input id="searchInput" type="search" placeholder="搜尋商品，例如鴨舌、豆干" />
+          </label>
+        </div>
+        <div class="category-tabs" id="categoryTabs"></div>
+        <section class="product-grid section" id="productGrid"></section>
+      </section>
+
+      <section id="group" class="view">
+        <div class="page-head">
+          <p class="eyebrow">Group Order</p>
+          <h1>團體訂購</h1>
+          <p>適合公司、節慶禮盒、多人代訂。原型會把送出資料保存到後台。</p>
+        </div>
+        <section class="section form-layout">
+          <form id="groupForm" class="panel-form">
+            <label>公司/團體名稱<input name="company" required placeholder="例如：群佳科技" /></label>
+            <label>聯絡人<input name="name" required placeholder="王小姐" /></label>
+            <label>手機<input name="phone" required placeholder="0912-345-678" /></label>
+            <label>預計取貨/配送日期<input name="date" type="date" required /></label>
+            <label>預估預算<select name="budget"><option>NT$5,000 以下</option><option>NT$5,000 - 20,000</option><option>NT$20,000 以上</option></select></label>
+            <label class="full">需求說明<textarea name="note" rows="5" placeholder="品項、數量、配送地址、是否需要統編或發票抬頭"></textarea></label>
+            <button class="primary-btn" type="submit">
+              <i data-lucide="send"></i>
+              送出團購需求
+            </button>
+          </form>
+          <aside class="side-panel">
+            <h2>團購流程</h2>
+            <ol>
+              <li>填寫需求與預計日期</li>
+              <li>後台收到團購詢問</li>
+              <li>專人確認品項與配送</li>
+              <li>建立正式訂單與付款</li>
+            </ol>
+          </aside>
+        </section>
+      </section>
+
+      <section id="orders" class="view">
+        <div class="page-head">
+          <p class="eyebrow">Order Tracking</p>
+          <h1>訂單查詢</h1>
+          <p>輸入訂單編號與手機即可查詢。你也可以先去結帳產生一筆示範訂單。</p>
+        </div>
+        <section class="section form-layout">
+          <form id="lookupForm" class="panel-form compact">
+            <label>訂單編號<input id="lookupOrderNo" required placeholder="LT20260706001" /></label>
+            <label>手機號碼<input id="lookupPhone" required placeholder="0912-345-678" /></label>
+            <button class="primary-btn" type="submit">
+              <i data-lucide="search-check"></i>
+              查詢訂單
+            </button>
+          </form>
+          <div id="lookupResult" class="result-panel"></div>
+        </section>
+      </section>
+
+      <section id="admin" class="view">
+        <div class="page-head">
+          <p class="eyebrow">Admin Demo</p>
+          <h1>營運後台</h1>
+          <p>示範新版系統的管理端：商品、訂單、團購需求與營運摘要。</p>
+        </div>
+        <section class="admin-stats section">
+          <article><span id="statRevenue">NT$0</span><small>訂單總額</small></article>
+          <article><span id="statOrders">0</span><small>訂單數</small></article>
+          <article><span id="statProducts">0</span><small>商品數</small></article>
+          <article><span id="statGroups">0</span><small>團購需求</small></article>
+        </section>
+        <section class="section admin-layout">
+          <div class="admin-panel image-admin-panel">
+            <div class="panel-title">
+              <h2>圖片管理</h2>
+              <button class="secondary-btn" id="resetImages" type="button">還原預設圖片</button>
+            </div>
+            <p class="panel-hint">
+              可貼圖片網址，也可選擇本機照片上傳。原型會存在瀏覽器，正式版可改接雲端儲存。
+            </p>
+            <div id="imageManager" class="image-manager"></div>
+          </div>
+          <div class="admin-panel">
+            <div class="panel-title">
+              <h2>商品管理</h2>
+              <button class="secondary-btn" id="resetProducts" type="button">還原示範商品</button>
+            </div>
+            <form id="productForm" class="inline-form">
+              <input name="name" required placeholder="商品名稱" />
+              <input name="price" required type="number" min="1" placeholder="價格" />
+              <input name="category" required placeholder="分類" />
+              <input name="image" placeholder="圖片網址" />
+              <button class="primary-btn" type="submit">新增商品</button>
+            </form>
+            <div id="adminProducts" class="admin-list"></div>
+          </div>
+          <div class="admin-panel order-admin-panel">
+            <div class="panel-title">
+              <h2>訂單管理</h2>
+              <div class="panel-actions">
+                <button class="secondary-btn" id="seedOrderBtn" type="button">建立示範訂單</button>
+                <button class="secondary-btn" id="exportOrdersBtn" type="button">
+                  <i data-lucide="download"></i>
+                  匯出 CSV
+                </button>
+              </div>
+            </div>
+            <div class="order-toolbar">
+              <label class="search-field admin-search">
+                <i data-lucide="search"></i>
+                <input id="adminOrderSearch" type="search" placeholder="搜尋訂單編號、姓名、手機" />
+              </label>
+              <select id="adminOrderStatus">
+                <option value="all">全部狀態</option>
+                <option>待付款確認</option>
+                <option>待門市確認</option>
+                <option>備貨中</option>
+                <option>已出貨</option>
+                <option>已完成</option>
+                <option>已取消</option>
+              </select>
+            </div>
+            <div id="adminOrders" class="order-table"></div>
+          </div>
+          <div class="admin-panel">
+            <h2>團購需求</h2>
+            <div id="adminGroups" class="admin-list"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <aside class="drawer" id="cartDrawer" aria-label="購物車">
+      <div class="drawer-head">
+        <h2>購物車</h2>
+        <button class="icon-btn" id="closeCart" type="button" title="關閉">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <form id="checkoutForm" class="checkout-form">
+        <h3>結帳資料</h3>
+        <label>姓名<input name="customer" required placeholder="訂購人姓名" /></label>
+        <label>手機<input name="phone" required placeholder="0912-345-678" /></label>
+        <label>配送方式<select name="shipping"><option>到店自取</option><option>大台北機車快遞</option><option>黑貓冷藏宅配</option></select></label>
+        <label>付款方式<select name="payment"><option>線上刷卡</option><option>虛擬帳號匯款</option><option>到店付款</option></select></label>
+        <div class="cart-total">
+          <span>合計</span>
+          <strong id="cartTotal">NT$0</strong>
+        </div>
+        <button class="primary-btn full-btn" type="submit">建立訂單</button>
+      </form>
+    </aside>
+
+    <dialog id="memberDialog" class="modal">
+      <form method="dialog">
+        <button class="icon-btn modal-close" value="close" title="關閉"><i data-lucide="x"></i></button>
+      </form>
+      <h2>會員中心</h2>
+      <p id="memberStatus">可用手機建立示範會員。正式版可串簡訊驗證與會員資料庫。</p>
+      <form id="memberForm" class="panel-form compact">
+        <label>手機<input name="phone" required placeholder="0912-345-678" /></label>
+        <label>姓名<input name="name" required placeholder="謝先生" /></label>
+        <button class="primary-btn" type="submit">登入/註冊</button>
+      </form>
+    </dialog>
+
+    <dialog id="orderDialog" class="modal order-modal">
+      <form method="dialog">
+        <button class="icon-btn modal-close" value="close" title="關閉"><i data-lucide="x"></i></button>
+      </form>
+      <div id="orderDialogContent"></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
