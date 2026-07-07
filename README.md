@@ -2,6 +2,10 @@
 
 這是一個以前台公開頁面為需求藍本重做的現代化電商網站原型，不使用舊站程式碼。
 
+## 線上 Demo
+
+👉 **[https://gbi0426-terry.github.io/lautianlu-modern/](https://gbi0426-terry.github.io/lautianlu-modern/)**
+
 ## 已完成的示範功能
 
 - 品牌首頁與品牌故事頁
