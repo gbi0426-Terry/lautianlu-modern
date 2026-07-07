@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老天祿｜金流與發票需求確認單</title>
+<style>
+  :root{
+    --brand:#7a1f1f;
+    --brand-dark:#5c1616;
+    --bg:#f7f3ee;
+    --card:#ffffff;
+    --ink:#2b2622;
+    --muted:#847b72;
+    --line:#e7ded4;
+    --sel:#fbeee9;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{
+    margin:0;font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:20px 16px 60px;}
+  header{
+    background:var(--brand);color:#fff;border-radius:16px;padding:22px 20px;margin-bottom:20px;
+  }
+  header .logo{display:flex;align-items:center;gap:12px;}
+  header .badge{width:44px;height:44px;border-radius:12px;background:#fff;color:var(--brand);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;}
+  header h1{margin:0;font-size:19px;}
+  header p{margin:2px 0 0;font-size:13px;opacity:.9;}
+  header .desc{margin:16px 0 0;font-size:14px;opacity:.95;line-height:1.7;}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;margin-bottom:16px;}
+  .q h2{margin:0 0 4px;font-size:16px;}
+  .q .hint{margin:0 0 14px;font-size:13px;color:var(--muted);}
+  .opts{display:grid;gap:10px;}
+  .opts.two{grid-template-columns:1fr 1fr;}
+  @media(max-width:480px){.opts.two{grid-template-columns:1fr;}}
+  .opt{
+    display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:12px;
+    padding:13px 14px;cursor:pointer;background:#fff;transition:.15s;user-select:none;
+  }
+  .opt:hover{border-color:#d8c9ba;}
+  .opt.on{border-color:var(--brand);background:var(--sel);}
+  .opt .mark{
+    flex:0 0 auto;width:22px;height:22px;border:2px solid #cbbfb2;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;margin-top:1px;font-size:14px;color:#fff;background:#fff;transition:.15s;
+  }
+  .opt.radio .mark{border-radius:50%;}
+  .opt.on .mark{background:var(--brand);border-color:var(--brand);}
+  .opt .t{font-size:15px;font-weight:600;}
+  .opt .s{font-size:12px;color:var(--muted);margin-top:2px;}
+  textarea, input[type=text]{
+    width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;
+    font-family:inherit;color:var(--ink);background:#fff;resize:vertical;
+  }
+  textarea:focus,input:focus{outline:none;border-color:var(--brand);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media(max-width:480px){.row2{grid-template-columns:1fr;}}
+  label.fld{display:block;font-size:13px;color:var(--muted);margin:0 0 6px;}
+  .submit{
+    width:100%;border:none;background:var(--brand);color:#fff;font-size:17px;font-weight:600;
+    border-radius:14px;padding:16px;cursor:pointer;margin-top:6px;
+  }
+  .submit:active{background:var(--brand-dark);}
+  .result{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 16px;margin-top:18px;display:none;}
+  .result h2{margin:0 0 10px;font-size:16px;}
+  .result pre{
+    background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;
+    font-size:14px;white-space:pre-wrap;word-break:break-word;font-family:inherit;margin:0 0 12px;line-height:1.7;
+  }
+  .copy{width:100%;border:1.5px solid var(--brand);background:#fff;color:var(--brand);font-weight:600;
+    font-size:15px;border-radius:12px;padding:13px;cursor:pointer;}
+  .copy:active{background:var(--sel);}
+  .note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <div class="badge">祿</div>
+      <div>
+        <h1>老天祿 · 線上付款與發票需求確認</h1>
+        <p>台北城滷味專門店</p>
+      </div>
+    </div>
+    <p class="desc">為了幫您規劃新網站的「線上刷卡、LINE Pay、電子發票」功能，請花 1 分鐘勾選您希望的方式，完成後按下方按鈕，把結果複製傳回給我們即可。</p>
+  </header>
+
+  <div class="q">
+    <h2>1. 想開放哪些付款方式給客人？</h2>
+    <p class="hint">可複選</p>
+    <div class="opts" data-name="付款方式" data-multi="1">
+      <div class="opt" data-value="信用卡一次付清"><div class="mark">✓</div><div><div class="t">信用卡一次付清</div><div class="s">最常用，手續費約 2.8%／筆</div></div></div>
+      <div class="opt" data-value="信用卡分期"><div class="mark">✓</div><div><div class="t">信用卡分期</div><div class="s">大額禮盒適用，費率較高</div></div></div>
+      <div class="opt" data-value="LINE Pay"><div class="mark">✓</div><div><div class="t">LINE Pay</div><div class="s">熟客常用，掃碼即付</div></div></div>
+      <div class="opt" data-value="Apple Pay / Google Pay"><div class="mark">✓</div><div><div class="t">Apple Pay / Google Pay</div><div class="s">手機一鍵付款</div></div></div>
+      <div class="opt" data-value="ATM 轉帳（虛擬帳號）"><div class="mark">✓</div><div><div class="t">ATM 轉帳</div><div class="s">產生虛擬帳號，手續費低</div></div></div>
+      <div class="opt" data-value="超商代碼繳費"><div class="mark">✓</div><div><div class="t">超商代碼繳費</div><div class="s">沒信用卡也能付</div></div></div>
+    </div>
+  </div>
+
+  <div class="q">
+    <h2>2. 需要系統自動開立電子發票嗎？</h2>
+    <p class="hint">單選</p>
+    <div class="opts" data-name="電子發票" data-multi="0">
+      <div class="opt radio" data-value="要，付款後自動開立電子發票"><div class="mark">✓</div><div><div class="t">要，付款後自動開立</div></div></div>
+      <div class="opt radio" data-value="要，且需要載具與公司統編"><div class="mark">✓</div><div><div class="t">要，含載具與公司統編</div></div></div>
+      <div class="opt radio" data-value="暫時不需要發票"><div class="mark">✓</div><div><div class="t">暫時不需要</div></div></div>
+    </div>
+  </div>
+
+  <div class="q">
+    <h2>3. 偏好哪一家金流整合商？</h2>
+    <p class="hint">單選，一次包辦刷卡＋LINE Pay＋發票。不確定可選最後一項</p>
+    <div class="opts" data-name="金流商" data-multi="0">
+      <div class="opt radio" data-value="綠界 ECPay"><div class="mark">✓</div><div><div class="t">綠界 ECPay</div><div class="s">市佔高、文件多、新戶發票首年免費</div></div></div>
+      <div class="opt radio" data-value="藍新 NewebPay"><div class="mark">✓</div><div><div class="t">藍新 NewebPay</div><div class="s">無年費、發票折讓一站完成</div></div></div>
+      <div class="opt radio" data-value="兩家都想比較後再決定"><div class="mark">✓</div><div><div class="t">先比較再決定</div><div class="s">想看兩家詳細對照</div></div></div>
+    </div>
+  </div>
+
+  <div class="q">
+    <h2>4. 其他需求（選填）</h2>
+    <p class="hint">例如預算上限、每月大約單量、想不想保留貨到付款等</p>
+    <textarea data-name="其他需求" rows="3" placeholder="在這裡補充…"></textarea>
+  </div>
+
+  <div class="q">
+    <h2>5. 您的聯絡資訊（選填）</h2>
+    <div class="row2">
+      <div><label class="fld">店名／公司</label><input type="text" data-name="店名"></div>
+      <div><label class="fld">聯絡人</label><input type="text" data-name="聯絡人"></div>
+    </div>
+    <div style="margin-top:10px"><label class="fld">電話或 LINE</label><input type="text" data-name="聯絡方式"></div>
+  </div>
+
+  <button class="submit" id="go">產生我的選擇</button>
+
+  <div class="result" id="result">
+    <h2>以下是您的選擇</h2>
+    <pre id="summary"></pre>
+    <button class="copy" id="copy">一鍵複製，傳回 LINE 給我們</button>
+    <p class="note">複製後，請貼到 LINE 或 Email 傳回給我們，即可完成需求確認。</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.opts').forEach(function(group){
+    var multi = group.getAttribute('data-multi') === '1';
+    group.querySelectorAll('.opt').forEach(function(opt){
+      opt.addEventListener('click', function(){
+        if(!multi){
+          group.querySelectorAll('.opt').forEach(function(o){o.classList.remove('on');});
+          opt.classList.add('on');
+        } else {
+          opt.classList.toggle('on');
+        }
+      });
+    });
+  });
+
+  function collect(){
+    var lines = ['【老天祿 · 線上付款與發票需求確認單】',''];
+    document.querySelectorAll('.opts').forEach(function(group){
+      var name = group.getAttribute('data-name');
+      var picked = [];
+      group.querySelectorAll('.opt.on').forEach(function(o){ picked.push(o.getAttribute('data-value')); });
+      lines.push('◆ ' + name + '：' + (picked.length ? picked.join('、') : '（未選）'));
+    });
+    document.querySelectorAll('[data-name]').forEach(function(el){
+      if(el.tagName === 'TEXTAREA' || el.tagName === 'INPUT'){
+        var v = el.value.trim();
+        if(v) lines.push('◆ ' + el.getAttribute('data-name') + '：' + v);
+      }
+    });
+    return lines.join('\n');
+  }
+
+  document.getElementById('go').addEventListener('click', function(){
+    document.getElementById('summary').textContent = collect();
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({behavior:'smooth'});
+  });
+
+  document.getElementById('copy').addEventListener('click', function(){
+    var text = document.getElementById('summary').textContent;
+    var btn = this;
+    function done(){ btn.textContent = '已複製 ✓ 請貼到 LINE 傳回'; setTimeout(function(){ btn.textContent='一鍵複製，傳回 LINE 給我們'; },2500); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(text); done(); });
+    } else { fallback(text); done(); }
+  });
+
+  function fallback(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>
